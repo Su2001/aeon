@@ -121,7 +121,7 @@ def main() -> None:
     logger = setup_logger()
     logfile_name = None
     if hasattr(args, "filename"):
-        logfile_name = args.filename + "_" + args.synthesizer
+        logfile_name = f"{args.filename}_{args.synthesizer}_{args.budget}"
     elif hasattr(args, "language_server_mode"):
         logfile_name = "lsp"
     export_log(args.log, args.logfile, logfile_name)
