@@ -79,7 +79,7 @@ def synthes_memory(ctx: TypingContext, level: int, ret_t: Type, skip: Callable[[
         mem[(ctx, level, ret_t)] = []
         try:
             for item in synthes(ctx, level, ret_t, skip, mem):
-                mem[(ctx, level, ret_t)].append(item)
+                mem[(level, ret_t)].append(item)
                 yield item
         except NotImplementedError:
             yield from []
