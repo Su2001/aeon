@@ -73,10 +73,10 @@ def closing(elems: tuple, typ: TypeConstructor):
 
 
 def synthes_memory(ctx: TypingContext, level: int, ret_t: Type, skip: Callable[[Name], bool], mem: dict):
-    if (ctx, level, ret_t) in mem:
-        yield from mem[(ctx, level, ret_t)]
+    if (level, ret_t) in mem:
+        yield from mem[(level, ret_t)]
     else:
-        mem[(ctx, level, ret_t)] = []
+        mem[(level, ret_t)] = []
         try:
             for item in synthes(ctx, level, ret_t, skip, mem):
                 mem[(level, ret_t)].append(item)
