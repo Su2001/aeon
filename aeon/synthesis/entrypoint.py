@@ -93,7 +93,7 @@ def make_evaluator(
         result_queue = mp.Queue()
         eval_process = mp.Process(target=evaluate_individual, args=(prog, result_queue))
         eval_process.start()
-        eval_process.join(timeout=timeout)
+        eval_process.join(timeout=timeout+10)
         if eval_process.is_alive():
             eval_process.close()
             eval_process.terminate()
